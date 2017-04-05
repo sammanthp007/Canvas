@@ -10,10 +10,18 @@ import UIKit
 
 class CanvasViewController: UIViewController {
 
-//    At the top of the file, where you create your outlets, create a "global" variable to store the original center of the trayView: 
+    // At the top of the file, where you create your outlets, create a "global" variable to store the original center of the trayView:
     var trayOriginalCenter: CGPoint!
     
-    //        Create two new class variables to store the tray's position when it's "up" and "down" as well as a variable for the offset amount that the tray will move down
+    // We'll be creating new faces, so we'll need to create a variable to keep track of the new face. Add a variable of type UIImageView to the top of the file
+    var newlyCreatedFace: UIImageView!
+    
+    // create another variable at the top of the file to capture the initial center of the new face
+    var newlyCreatedFaceOriginalCenter: CGPoint!
+
+
+    
+    //  Create two new class variables to store the tray's position when it's "up" and "down" as well as a variable for the offset amount that the tray will move down
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
     var trayDown: CGPoint!
@@ -38,10 +46,10 @@ class CanvasViewController: UIViewController {
     }
     
     @IBAction func didPanTray(_ sender: UIPanGestureRecognizer) {
-//        access the translation parameter of the UIPanGestureRecocognizer and store it in a constant.
+        //  access the translation parameter of the UIPanGestureRecocognizer and store it in a constant.
         let translation = sender.translation(in: view)
         
-//        Get the velocity of the pan gesture recognizer
+        //  Get the velocity of the pan gesture recognizer
         var velocity = sender.velocity(in: view)
         
         if sender.state == .began {
@@ -68,6 +76,43 @@ class CanvasViewController: UIViewController {
         }
 
     }
+    
+    @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
+        //  access the translation parameter of the UIPanGestureRecocognizer and store it in a constant.
+        let translation = sender.translation(in: view)
+        
+        // create a new image view that contains the same image as the view that was panned on
+        if sender.state == .began {
+            
+            // imageView now refers to the face that you panned on
+            var imageView = sender.view as! UIImageView
+            
+            // Create a new image view that has the same image as the one you're currently panning
+            newlyCreatedFace = UIImageView(image: imageView.image)
+            
+            // Add the new face to the main view
+            view.addSubview(newlyCreatedFace)
+            
+            // Initialize the position of the new face.
+            newlyCreatedFace.center = imageView.center
+            
+            // Since the original face is in the tray, but the new face is in the main view, you have to offset the coordinates.
+            newlyCreatedFace.center.y += trayView.frame.origin.y
+            
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            
+            print("Gesture began")
+        } else if sender.state == .changed {
+            // pan the position of the newlyCreatedFace.
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+
+            
+            print("Gesture is changing")
+        } else if sender.state == .ended {
+            print("Gesture ended")
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
