@@ -104,6 +104,7 @@ trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
       the `trayDown` point, otherwise, animate it towards the `trayUp` point.
       [Animating View
       Properties](https://guides.codepath.com/ios/Animating-View-Properties)
+
       **Optional**: Try animating the ending tray motion with a bounce using
       the damping ratio and initial spring velocity. [Spring
       Animation](https://guides.codepath.com/ios/Animating-View-Properties#spring-animation)
