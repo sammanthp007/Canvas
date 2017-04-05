@@ -11,7 +11,7 @@
 You can download the Canvas assets [here](https://www.dropbox.com/s/94x5xry9ib3xc3w/Canvas%20Assets.zip).
 
 ### Final App
-<img src="" title='final app' alt='final app'/>
+<img src="https://github.com/sammanthp007/Canvas/blob/master/walkthrough.gif" title='final app' alt='final app'/>
 
 ## Milestones
 
