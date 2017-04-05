@@ -144,7 +144,7 @@ var newlyCreatedFace: UIImageView!
 
     - `var imageView = sender.view as! UIImageView`. imageView now refers to
       the face that you panned on.
-    - `newlyCreatedFace = UIImageView(image: imageView.image). Create a new
+    - `newlyCreatedFace = UIImageView(image: imageView.image)`. Create a new
       image view that has the same image as the one you're currently panning.
     - `view.addSubview(newlyCreatedFace)`. Add the new face to the main view.
     - `newlyCreatedFace.center = imageView.center`. Initialize the position of
