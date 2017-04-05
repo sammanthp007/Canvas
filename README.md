@@ -213,24 +213,43 @@ alt='Panning faces on Canvas gif'/>
 
 ## 6. Bonus: Scaling Faces
 
-After you create the new face, programmatically create and add a UIPinchGestureRecognizer to the newly created face. Instantiate the Pinch Gesture Recognizer just like you did the pan gesture recognizer.
-Create a method to be called when the Pinch Gesture Recognizer is activated.
-Use the scale property of the pinch gesture recognizer to set a scale transform on the view.
-7. Bonus: Rotating Faces
+- After you create the new face, programmatically create and add a
+  UIPinchGestureRecognizer to the newly created face. Instantiate the Pinch
+  Gesture Recognizer just like you did the pan gesture recognizer.
+- Create a method to be called when the Pinch Gesture Recognizer is activated.
+- Use the [scale
+  property](https://guides.codepath.com/ios/Using-Gesture-Recognizers#pinch-gesture-recognizer)
+  of the pinch gesture recognizer to set a scale transform on the view.
 
-After you create the new face, programmatically add a UIRotateGestureRecognizer to the newly created face.
-Guide: Working with Simultaneous Gesture Recognizers
-8. The Tray Arrow
+## 7. Bonus: Rotating Faces
 
-The arrow should rotate as the tray travels between the open position and the closed position. Hint: Set the transform in the pan gesture in the change state. In the end state, animate it to the up or down position. Guide: Using View Transforms
-9. Bonus: Dropping a Face on the Tray
+- After you create the new face, programmatically add a
+  UIRotateGestureRecognizer to the newly created face.
+- Guide: [Working with Simultaneous Gesture
+  Recognizers](https://courses.codepath.com/courses/ios_university/pages/using_gesture_recognizers#heading-using-simultaneous-gesture-recognizers)
 
-If the user drops a newly created face on the tray, the face should animate back to where it came from.
-10. Bonus: Deleting Faces
+## 8. The Tray Arrow
 
-Double tap to delete a face.
-Add a tap gesture recognizer and set the number of taps to recognize to 2.
-To remove a view from its superview just do something like, faceView.removeFromSuperview()
-11. Bonus: Frictional Tray
+- The arrow should rotate as the tray travels between the open position and the
+  closed position. Hint: Set the transform in the pan gesture in the change
+  state. In the end state, animate it to the up or down position. 
+- Guide: [Using View
+  Transforms](https://courses.codepath.com/courses/ios_university/pages/using_view_transforms)
 
-If the user attempts to drag the tray above the open position, it should began a frictional drag. In other words, only move the tray 1 pixel for every 10 pixels the user's finger moves.
+## 9. Bonus: Dropping a Face on the Tray
+
+- If the user drops a newly created face on the tray, the face should animate
+  back to where it came from.
+
+## 10. Bonus: Deleting Faces
+
+- Double tap to delete a face.
+    - Add a tap gesture recognizer and set the number of taps to recognize to 2.
+    - To remove a view from its superview just do something like,
+      `faceView.removeFromSuperview()`
+
+## 11. Bonus: Frictional Tray
+
+- If the user attempts to drag the tray above the open position, it should
+  began a frictional drag. In other words, only move the tray 1 pixel for every
+  10 pixels the user's finger moves.
