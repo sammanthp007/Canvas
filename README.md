@@ -199,7 +199,7 @@ alt='Panning faces on Canvas gif'/>
 - Create a new function to handle panning the faces on the canvas. It should
   have the same name as the `action:` when you created the Pan Gesture
   Recognizer. REMEMBER: Do not create this function within any other function,
-  give it it's own space in the file! Implement the Event Handler Method
+  give it it's own space in the file! Implement the [Event Handler Method](https://guides.codepath.com/ios/Using-Gesture-Recognizers#example-pan-gesture-recognizer)
 - Get the translation from the Gesture Recognizer. [Pan Gesture Recognizer](https://guides.codepath.com/ios/Using-Gesture-Recognizers#example-pan-gesture-recognizer)
 - Add a conditional statement with conditions for the gesture states, `.began`, `.changed`, and `.ended`.
 - When panning begins, (`.began`)...
