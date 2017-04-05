@@ -10,6 +10,9 @@
 
 You can download the Canvas assets [here](https://www.dropbox.com/s/94x5xry9ib3xc3w/Canvas%20Assets.zip).
 
+### Final App
+<img src="" title='final app' alt='final app'/>
+
 ## Milestones
 
 ### Setup:
@@ -32,7 +35,8 @@ You can download the Canvas assets [here](https://www.dropbox.com/s/94x5xry9ib3x
   View from Media Library Add Tray and
   faces](https://guides.codepath.com/ios/Using-UIImageView#adding-imageview-with-image-from-media-library)
 
-<img src="http://i.imgur.com/2a7GnL9.gif" title='Drag a pan gesture recognizer onto the tray view' alt='Drag a pan gesture recognizer onto the tray view'/>
+<img src="http://i.imgur.com/2a7GnL9.gif" title='Drag a pan gesture recognizer
+onto the tray view' alt='Drag a pan gesture recognizer onto the tray view'/>
 
 ## 2. Make the Tray Draggable
 
