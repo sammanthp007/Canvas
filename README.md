@@ -32,10 +32,10 @@ You can download the Canvas assets [here](https://www.dropbox.com/s/94x5xry9ib3x
 ## 2. Make the Tray Draggable
 
 * Create an outlet for the trayView, `trayView`.
-* At the top of the file, where you create your outlets, create a "global" variable to store the original center of the trayView: `var trayOriginalCenter: CGPoint!`
-* Drag a UIPanGestureRecognizer onto the tray view.
-HINT: You can see which view the Gesture Recognizer is attached to by ctrl +
-Clicking on the Gesture Recognizer in the Document Outline.
+- At the top of the file, where you create your outlets, create a "global" variable to store the original center of the trayView: `var trayOriginalCenter: CGPoint!`
+- Drag a UIPanGestureRecognizer onto the tray view.
+    - HINT: You can see which view the Gesture Recognizer is attached to by
+      ctrl + Clicking on the Gesture Recognizer in the Document Outline.
 
 <img src="http://i.imgur.com/Yv8WOcP.gif" title='Drag a pan gesture recognizer
 onto the tray view' alt='Drag a pan gesture recognizer onto the tray view'/>
