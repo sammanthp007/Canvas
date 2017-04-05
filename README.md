@@ -184,20 +184,34 @@ newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translat
 
 ## 5. Panning Faces on the Canvas
 
-Panning faces on Canvas gif
+<img src="http://i.imgur.com/wizYF8G.gif" title='Panning faces on Canvas gif'
+alt='Panning faces on Canvas gif'/>
 
-After you create the new face, programmatically create and add a UIPanGestureRecognizer to the newly created face. The guide demonstrates adding the gesture recognizer in viewDidLoad, however you will add your Pan Gesture Recognizer where you're creating the new image view.
-You will also need to set newlyCreatedFace.userInteractionEnabled = true in order for the Gesture Recognizer to work.
-Create a new function to handle panning the faces on the canvas. It should have the same name as the action: when you created the Pan Gesture Recognizer. REMEMBER: Do not create this function within any other function, give it it's own space in the file! Implement the Event Handler Method
-Get the translation from the Gesture Recognizer. Pan Gesture Recognizer
-Add a conditional statement with conditions for the gesture states, .began, .changed, and .ended.
-When panning begins, (.began)...
-Set newlyCreatedFace = sender.view as! UIImageView to get the face that we panned on.
-Set newlyCreatedFaceOriginalCenter = newlyCreatedFace.center so we can offset by translation later.
-While in the process of panning, (.changed)...
-Pan the face around,
+
+- After you create the new face, programmatically create and add a
+  UIPanGestureRecognizer to the newly created face. The guide demonstrates
+  adding the gesture recognizer in `viewDidLoad`, however you will [add your
+  Pan Gesture
+  Recognizer](https://courses.codepath.com/courses/ios_university/unit/(https://guides.codepath.com/ios/Using-Gesture-Recognizers#1-example-pan-gesture-recognizer))
+  where you're creating the new image view.
+- You will also need to set `newlyCreatedFace.userInteractionEnabled = true` in
+  order for the Gesture Recognizer to work.
+- Create a new function to handle panning the faces on the canvas. It should
+  have the same name as the `action:` when you created the Pan Gesture
+  Recognizer. REMEMBER: Do not create this function within any other function,
+  give it it's own space in the file! Implement the Event Handler Method
+- Get the translation from the Gesture Recognizer. [Pan Gesture Recognizer](https://guides.codepath.com/ios/Using-Gesture-Recognizers#example-pan-gesture-recognizer)
+- Add a conditional statement with conditions for the gesture states, `.began`, `.changed`, and `.ended`.
+- When panning begins, (`.began`)...
+    - Set `newlyCreatedFace = sender.view as! UIImageView` to get the face that we panned on.
+    - Set `newlyCreatedFaceOriginalCenter = newlyCreatedFace.center` so we can offset by translation later.
+- While in the process of panning, (`.changed`)...
+    - Pan the face around,
+    ```
    newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
-6. Bonus: Scaling Faces
+   ```
+
+## 6. Bonus: Scaling Faces
 
 After you create the new face, programmatically create and add a UIPinchGestureRecognizer to the newly created face. Instantiate the Pinch Gesture Recognizer just like you did the pan gesture recognizer.
 Create a method to be called when the Pinch Gesture Recognizer is activated.

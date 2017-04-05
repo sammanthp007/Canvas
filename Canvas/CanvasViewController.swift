@@ -83,7 +83,6 @@ class CanvasViewController: UIViewController {
         
         // create a new image view that contains the same image as the view that was panned on
         if sender.state == .began {
-            
             // imageView now refers to the face that you panned on
             var imageView = sender.view as! UIImageView
             
@@ -99,6 +98,7 @@ class CanvasViewController: UIViewController {
             // Since the original face is in the tray, but the new face is in the main view, you have to offset the coordinates.
             newlyCreatedFace.center.y += trayView.frame.origin.y
             
+            // for panning
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
             
             print("Gesture began")
@@ -110,7 +110,31 @@ class CanvasViewController: UIViewController {
             print("Gesture is changing")
         } else if sender.state == .ended {
             print("Gesture ended")
+            // programmatically create and add a UIPanGestureRecognizer to the newly created face
+            // in order for the Gesture Recognizer to work
+            newlyCreatedFace.isUserInteractionEnabled = true
+            let addGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFaceFromTheMainView(sender:)))
+            newlyCreatedFace.isUserInteractionEnabled = true
+            newlyCreatedFace.addGestureRecognizer(addGestureRecognizer)
         }
+    }
+    
+    func didPanFaceFromTheMainView(sender: UIPanGestureRecognizer) {
+        NSLog("Paned from the main View")
+        let translation = sender.translation(in: view)
+        if sender.state == .began {
+            newlyCreatedFace = sender.view as! UIImageView
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+        }
+            
+        else if sender.state == .changed {
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+        }
+            
+        else if sender.state == .ended {
+
+        }
+        
     }
     
 
