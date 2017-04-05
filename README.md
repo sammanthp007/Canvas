@@ -41,7 +41,7 @@ Clicking on the Gesture Recognizer in the Document Outline.
 onto the tray view' alt='Drag a pan gesture recognizer onto the tray view'/>
 
 * Ctrl-drag from the Pan Gesture Recognizer to the CanvasViewController swift file to create an action. Be sure to change the type to UIPanGestureRecognizer. You can name the Action, `didPanTray`. 
-r
+
 <img src="http://i.imgur.com/ddu28U5.gif" title='Create action from Pan Gesture
 Recognize' alt='Create action from Pan Gesture Recognize'/>
 
@@ -66,24 +66,49 @@ trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + tra
 
 ## 3. Tray Behavior
 
+<img src="http://i.imgur.com/P4v6iHa.gif" title='pull up tray' alt='pull up
+tray'/>
 
-Upon release (.ended), the tray should either snap to the open or closed position, depending on the velocity. In other words, if the tray was moving up, animate it to the open position position. If it was moving down, animate it to the closed position.
+Upon release (`.ended`), the tray should either snap to the open or closed
+position, depending on the velocity. In other words, if the tray was moving up,
+animate it to the open position position. If it was moving down, animate it to
+the closed position.
 
-Get the velocity of the pan gesture recognizer:
+* Get the velocity of the [pan gesture
+  recognizer](https://guides.codepath.com/ios/Using-Gesture-Recognizers#example-pan-gesture-recognizer):
+```
 var velocity = sender.velocity(in: view)
-Create two new class variables to store the tray's position when it's "up" and "down" as well as a variable for the offset amount that the tray will move down.
+```
+
+* Create two new class variables to store the tray's position when it's "up"
+  and "down" as well as a variable for the offset amount that the tray will
+  move down.
+```
 var trayDownOffset: CGFloat!
 var trayUp: CGPoint!
 var trayDown: CGPoint!
-Assign values to the trayDownOffset, trayUp and trayDown variables in viewDidLoad(). The trayDownOffset will dictate how much the tray moves down. 160 worked for my tray, but you will likely have to adjust this value to accommodate the specific size of your tray.
+```
+
+* Assign values to the `trayDownOffset`, `trayUp` and `trayDown` variables in
+  `viewDidLoad()`. The trayDownOffset will dictate how much the tray moves
+  down. 160 worked for my tray, but you will likely have to adjust this value
+  to accommodate the specific size of your tray.
+```
 trayDownOffset = 160
 trayUp = trayView.center
 trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
-For the gesture state, .ended, create a conditional statement to check the y component of the velocity.
-If the velocity.y is greater than 0, it's moving down. Otherwise, it's moving up.
-In the case that the tray is moving down, animate the tray position to the trayDown point, otherwise, animate it towards the trayUp point. Animating View Properties
-Optional: Try animating the ending tray motion with a bounce using the damping ratio and initial spring velocity. Spring Animation
-4. Creating Faces
+```
+* For the gesture state, `.ended`, create a conditional statement to check the y component of the velocity.
+* If the `velocity.y` is greater than 0, it's moving down. Otherwise, it's moving up.
+    * In the case that the tray is moving down, animate the tray position to
+      the `trayDown` point, otherwise, animate it towards the `trayUp` point.
+      [Animating View
+      Properties](https://guides.codepath.com/ios/Animating-View-Properties)
+      **Optional**: Try animating the ending tray motion with a bounce using
+      the damping ratio and initial spring velocity. [Spring
+      Animation](https://guides.codepath.com/ios/Animating-View-Properties#spring-animation)
+
+## 4. Creating Faces
 
 Creating Faces gif
 

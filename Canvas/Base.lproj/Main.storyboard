@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCa-wu-784">
-                                <rect key="frame" x="0.0" y="497" width="375" height="170"/>
+                                <rect key="frame" x="0.0" y="497" width="393" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="7gU-sU-wdH">
@@ -55,12 +55,24 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ePt-oi-D7F" appends="YES" id="8Jb-5x-3XH"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="trayView" destination="yCa-wu-784" id="Agd-tT-DLs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ePt-oi-D7F">
+                    <connections>
+                        <action selector="didPanTray:" destination="BYZ-38-t0r" id="2Lh-MU-Tid"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
