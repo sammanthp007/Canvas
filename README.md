@@ -1,5 +1,10 @@
 # Canvas
 
+### Reference
+- Video on Animation: [Codepath
+  link](https://courses.codepath.com/course_videos/ios_university/youtu/ojVrgo9aQ94?title=Animations)
+- Video on Gestures: [Codepath
+  link](https://courses.codepath.com/course_videos/ios_university/youtu/SSwkKFrdw2A?title=Gestures)
 
 ### Assets
 
