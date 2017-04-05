@@ -9,38 +9,62 @@ You can download the Canvas assets [here](https://www.dropbox.com/s/94x5xry9ib3x
 
 ### Setup:
 
-Create a new project (disable Auto Layout). Guide
-Add the image assets above. Guide
-When working with coordinates, it might be helpful to review the UIKit coordinate system.
-1. Add and Configure View Elements
+* Create a new project (disable Auto Layout).
+  [Guide](https://courses.codepath.com/courses/ios_university/pages/new_project)
+* Add the image assets above.
+  [Guide](https://github.com/codepath/ios_guides/wiki/Adding-Image-Assets)
+* When working with coordinates, it might be helpful to review the [UIKit
+  coordinate
+  system](https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW5).
 
-Create a custom ViewControllerSwift file, CanvasViewController and associate it with the ViewController in Storyboard. Creating Custom View Controllers
-Add a UIView to the bottom of the ViewController to serve as a "tray".
-Add 6 smiley images to the tray along with the down arrow icon. Adding Image View from Media Library Add Tray and faces
-2. Make the Tray Draggable
+## 1. Add and Configure View Elements
 
+* Create a custom ViewControllerSwift file, `CanvasViewController` and associate
+  it with the ViewController in Storyboard. [Creating Custom View
+  Controllers](https://courses.codepath.com/courses/ios_university/pages/creating_custom_view_controllers)
+* Add a UIView to the bottom of the ViewController to serve as a "tray".
+* Add 6 smiley images to the tray along with the down arrow icon. [Adding Image
+  View from Media Library Add Tray and
+  faces](https://guides.codepath.com/ios/Using-UIImageView#adding-imageview-with-image-from-media-library)
 
+<img src="http://i.imgur.com/2a7GnL9.gif" title='Drag a pan gesture recognizer onto the tray view' alt='Drag a pan gesture recognizer onto the tray view'/>
 
-Create an outlet for the trayView, trayView.
-At the top of the file, where you create your outlets, create a "global" variable to store the original center of the trayView: var trayOriginalCenter: CGPoint!
-Drag a UIPanGestureRecognizer onto the tray view.
+## 2. Make the Tray Draggable
 
-HINT: You can see which view the Gesture Recognizer is attached to by ctrl + Clicking on the Gesture Recognizer in the Document Outline.
-Drag a pan gesture recognizer onto the tray view
-Ctrl-drag from the Pan Gesture Recognizer to the CanvasViewController swift file to create an action. Be sure to change the type to UIPanGestureRecognizer. You can name the Action, didPanTray. Create action from Pan Gesture Recognizer
+* Create an outlet for the trayView, `trayView`.
+* At the top of the file, where you create your outlets, create a "global" variable to store the original center of the trayView: `var trayOriginalCenter: CGPoint!`
+* Drag a UIPanGestureRecognizer onto the tray view.
+HINT: You can see which view the Gesture Recognizer is attached to by ctrl +
+Clicking on the Gesture Recognizer in the Document Outline.
 
-Within the didPanTray(_:) method, access the translation parameter of the UIPanGestureRecocognizer and store it in a constant. Pan Gesture Recognizer
+<img src="http://i.imgur.com/Yv8WOcP.gif" title='Drag a pan gesture recognizer
+onto the tray view' alt='Drag a pan gesture recognizer onto the tray view'/>
 
+* Ctrl-drag from the Pan Gesture Recognizer to the CanvasViewController swift file to create an action. Be sure to change the type to UIPanGestureRecognizer. You can name the Action, `didPanTray`. 
+r
+<img src="http://i.imgur.com/ddu28U5.gif" title='Create action from Pan Gesture
+Recognize' alt='Create action from Pan Gesture Recognize'/>
+
+**Within** the `didPanTray(_:)` method, access the translation parameter of the
+UIPanGestureRecocognizer and store it in a constant. [Pan Gesture Recognizer](https://guides.codepath.com/ios/Using-Gesture-Recognizers#example-2-pan-gesture-recognizer-1)
+
+```
 let translation = sender.translation(in: view)
-Within the didPanTray(_:) method, after you have accessed the translation, create a conditional statement to check the current gesture state during the pan: .began, .changed or .ended Pan Gesture Recognizer
+```
 
-When the gesture begins (.began), store the tray's center into the trayOriginalCenter variable:
-
+* Within the `didPanTray(_:)` method, after you have accessed the translation,
+  **create a conditional statement to check the current gesture state during
+  the pan:** `.began`, `.changed` or `.ended` [Pan Gesture
+  Recognizer](https://guides.codepath.com/ios/Using-Gesture-Recognizers#example-2-pan-gesture-recognizer-1)
+* When the gesture begins (`.began`), store the tray's center into the
+  trayOriginalCenter variable:
+```
 trayOriginalCenter = trayView.center
-As the user pans (.changed), change the trayView.center by the translation. Note: we ignore the x translation because we only want the tray to move up and down:
+```
+* As the user pans (.changed), change the trayView.center by the translation. Note: we ignore the x translation because we only want the tray to move up and down:
 trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
-3. Tray Behavior
 
+## 3. Tray Behavior
 
 
 Upon release (.ended), the tray should either snap to the open or closed position, depending on the velocity. In other words, if the tray was moving up, animate it to the open position position. If it was moving down, animate it to the closed position.
