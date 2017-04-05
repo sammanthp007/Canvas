@@ -101,6 +101,11 @@ class CanvasViewController: UIViewController {
             // for panning
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
             
+            // scale the face out after the start of the dragging
+            UIView.animate(withDuration: 0.3, animations: {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            })
+            
             print("Gesture began")
         } else if sender.state == .changed {
             // pan the position of the newlyCreatedFace.
@@ -110,6 +115,11 @@ class CanvasViewController: UIViewController {
             print("Gesture is changing")
         } else if sender.state == .ended {
             print("Gesture ended")
+            // after the face is droped the face will scale back to it initial size
+            UIView.animate(withDuration: 0.4, animations: {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+            
             // programmatically create and add a UIPanGestureRecognizer to the newly created face
             // in order for the Gesture Recognizer to work
             newlyCreatedFace.isUserInteractionEnabled = true
@@ -125,6 +135,11 @@ class CanvasViewController: UIViewController {
         if sender.state == .began {
             newlyCreatedFace = sender.view as! UIImageView
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            
+            // scale the face out after the start of the dragging
+            UIView.animate(withDuration: 0.3, animations: {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            })
         }
             
         else if sender.state == .changed {
@@ -132,7 +147,10 @@ class CanvasViewController: UIViewController {
         }
             
         else if sender.state == .ended {
-
+            // after the face is droped the face will scale back to it initial size
+            UIView.animate(withDuration: 0.4, animations: {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
         }
         
     }
